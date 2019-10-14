@@ -5,16 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+/**
+ * @author AndersIves
+ * @date 2019/10/14 下午 02:32
+ */
+
+
 public class FileUtils {
-    public static List<String> File2String(String FilePath) {
+    public static String File2String(String FilePath) {
         try {
             FileInputStream fileInputStream = new FileInputStream(FilePath);
             Scanner input = new Scanner(fileInputStream);
-            List<String> fileStringList = new ArrayList<>();
+            StringBuffer out = new StringBuffer();
             while (input.hasNextLine()) {
-                fileStringList.add(input.nextLine());
+                out.append(input.nextLine());
             }
-            return fileStringList;
+            return out.toString();
         }
         catch (Exception e) {
             e.printStackTrace();
